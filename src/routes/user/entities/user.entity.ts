@@ -1,7 +1,9 @@
 import { EntityBase } from 'src/entities/entity-base.entity';
-import { Column, Entity } from 'typeorm';
+import { Address } from 'src/routes/address/entities/address.entity';
+import { Pet } from 'src/routes/pet/entities/pet.entity';
+import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
 
-Entity('User');
+@Entity('User')
 export class User extends EntityBase {
   @Column({ name: 'Name', nullable: false, length: 80 })
   Name: string;
@@ -14,4 +16,10 @@ export class User extends EntityBase {
 
   @Column({ name: 'Password', nullable: false })
   Password: string;
+
+  @OneToOne(() => Address, (Address) => Address.User)
+  Address: Address;
+
+  @OneToMany(() => Pet, (Pet) => Pet.User)
+  Pet: Pet[];
 }

@@ -2,6 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './routes/user/user.module';
+import { VetModule } from './routes/vet/vet.module';
+import { PetModule } from './routes/pet/pet.module';
+import { AddressModule } from './routes/address/address.module';
+import { AuthModule } from './auth/auth.module';
+import { ClinicModule } from './routes/clinic/clinic.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -16,6 +21,11 @@ import { UserModule } from './routes/user/user.module';
       synchronize: true,
     }),
     UserModule,
+    VetModule,
+    PetModule,
+    AddressModule,
+    AuthModule,
+    ClinicModule,
   ],
   controllers: [],
   providers: [],
