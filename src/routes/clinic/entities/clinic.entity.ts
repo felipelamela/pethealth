@@ -1,6 +1,6 @@
 import { EntityBase } from 'src/entities/entity-base.entity';
 import { AddressClinic } from 'src/routes/address-clinic/entities/address-clinic.entity';
-import { Column, OneToMany, OneToOne } from 'typeorm';
+import { Column, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { ClinicWorker } from 'src/routes/clinic_worker/entities/clinic_worker.entity';
 import { ClinicVet } from 'src/routes/clinic_vet/entities/clinic_vet.entity';
 
@@ -13,6 +13,7 @@ export class Clinic extends EntityBase {
   Name: string;
 
   @OneToOne(() => AddressClinic, (AddressClinic) => AddressClinic.Clinic)
+  @JoinColumn({ name: 'Address_Id' })
   AddressClinic: AddressClinic;
 
   @OneToMany(() => ClinicVet, (ClinicVet) => ClinicVet.Clinic)
