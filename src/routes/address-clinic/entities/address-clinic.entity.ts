@@ -1,5 +1,5 @@
 import { Clinic } from 'src/routes/clinic/entities/clinic.entity';
-import { Column, Entity, OneToOne } from 'typeorm';
+import { Column, OneToOne } from 'typeorm';
 
 // @Entity({ name: 'Address_Clinic' })
 export class AddressClinic {

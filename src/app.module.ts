@@ -6,9 +6,7 @@ import { VetModule } from './routes/vet/vet.module';
 import { PetModule } from './routes/pet/pet.module';
 import { AuthModule } from './auth/auth.module';
 import { ClinicModule } from './routes/clinic/clinic.module';
-import { AddressClinicModule } from './routes/address-clinic/address-clinic.module';
 import { ClinicVetModule } from './routes/clinic_vet/clinic_vet.module';
-import { ClinicWorkerModule } from './routes/clinic_worker/clinic_worker.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -29,9 +27,7 @@ import { ClinicWorkerModule } from './routes/clinic_worker/clinic_worker.module'
     PetModule,
     AuthModule,
     ClinicModule,
-    AddressClinicModule,
     ClinicVetModule,
-    ClinicWorkerModule,
   ],
   controllers: [],
   providers: [],
