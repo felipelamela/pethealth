@@ -4,9 +4,9 @@ export abstract class EntityBase extends BaseEntity {
   @PrimaryGeneratedColumn()
   Id: number;
 
-  @Column({ name: 'Create_At', default: () => 'CURRENT_TIMESTAMP' })
+  @Column({ name: 'Created_At', default: () => 'CURRENT_TIMESTAMP' })
   Create_At: Date;
 
-  @Column({ name: 'Update_at', default: () => 'CURRENT_TIMESTAMP' })
+  @Column({ name: 'Updated_At', default: () => 'CURRENT_TIMESTAMP' })
   Update_At: Date;
 }

@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './routes/user/user.module';
 import { VetModule } from './routes/vet/vet.module';
 import { PetModule } from './routes/pet/pet.module';
-import { AddressModule } from './routes/address/address.module';
 import { AuthModule } from './auth/auth.module';
 import { ClinicModule } from './routes/clinic/clinic.module';
 @Module({
@@ -18,12 +17,13 @@ import { ClinicModule } from './routes/clinic/clinic.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [`${__dirname}/**/*.entity{.ts,.js}`],
-      synchronize: true,
+      migrations: [`${__dirname}/migration/{.ts,*.js}`],
+      migrationsRun: true,
+      // synchronize: true,
     }),
     UserModule,
     VetModule,
     PetModule,
-    AddressModule,
     AuthModule,
     ClinicModule,
   ],
