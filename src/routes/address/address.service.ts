@@ -25,9 +25,9 @@ export class AddressService {
   }
 
   async updateForUser(updateAddressDto: UpdateAddressDto) {
-    this.addressRepository.save(updateAddressDto);
-    return;
+    return this.addressRepository.save(updateAddressDto);
   }
+
   update(id: number, updateAddressDto: UpdateAddressDto) {
     console.log(updateAddressDto);
     return;
