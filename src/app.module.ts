@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './routes/user/user.module';
-import { VetModule } from './routes/vet/vet.module';
-import { PetModule } from './routes/pet/pet.module';
+import { UserModule } from './Routes/user/user.module';
+import { VetModule } from './Routes/vet/vet.module';
+import { PetModule } from './Routes/pet/pet.module';
 import { AuthModule } from './auth/auth.module';
-import { ClinicModule } from './routes/clinic/clinic.module';
-import { ClinicVetModule } from './routes/clinic_vet/clinic_vet.module';
+import { ClinicModule } from './Routes/clinic/clinic.module';
+import { ClinicVetModule } from './Routes/clinic_vet/clinic_vet.module';
+import { ClinicalAppointmentModule } from './Routes/clinical-appointment/clinical-appointment.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -28,6 +29,7 @@ import { ClinicVetModule } from './routes/clinic_vet/clinic_vet.module';
     AuthModule,
     ClinicModule,
     ClinicVetModule,
+    ClinicalAppointmentModule,
   ],
   controllers: [],
   providers: [],
