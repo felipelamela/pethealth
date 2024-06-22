@@ -1,6 +1,6 @@
-import { User } from 'src/Routes/user/entities/user.entity';
-import { EntityBase } from 'src/entities/entity-base.entity';
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { EntityBase } from '../../entities/entity-base.entity';
+import { User } from '../../Routes/user/entities/user.entity';
 
 @Entity('Role')
 export class Role extends EntityBase {

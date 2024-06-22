@@ -1,7 +1,7 @@
 import { Entity, Index, ManyToOne } from 'typeorm';
-import { Vet } from 'src/Routes/vet/entities/vet.entity';
-import { Clinic } from 'src/Routes/clinic/entities/clinic.entity';
-import { EntityBase } from 'src/entities/entity-base.entity';
+import { EntityBase } from '../../../entities/entity-base.entity';
+import { Vet } from '../../vet/entities/vet.entity';
+import { Clinic } from '../../clinic/entities/clinic.entity';
 
 @Entity('Clinic_Vet')
 @Index(['Vet', 'Clinic'], { unique: true })

@@ -1,4 +1,3 @@
-import { EntityBase } from 'src/entities/entity-base.entity';
 import {
   Column,
   Entity,
@@ -7,10 +6,11 @@ import {
   OneToMany,
   OneToOne,
 } from 'typeorm';
-import { ClinicVet } from 'src/Routes/clinic_vet/entities/clinic_vet.entity';
-import { ClinicalAppointment } from 'src/Routes/clinical-appointment/entities/clinical-appointment.entity';
-import { User } from 'src/Routes/user/entities/user.entity';
-import { Address } from 'src/Routes/address/entities/address.entity';
+import { EntityBase } from '../../../entities/entity-base.entity';
+import { ClinicVet } from '../../clinic_vet/entities/clinic_vet.entity';
+import { User } from '../../user/entities/user.entity';
+import { Address } from '../../address/entities/address.entity';
+import { ClinicalAppointment } from '../../clinical-appointment/entities/clinical-appointment.entity';
 
 @Entity('Clinic')
 export class Clinic extends EntityBase {

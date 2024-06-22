@@ -1,7 +1,7 @@
-import { EntityBase } from 'src/entities/entity-base.entity';
-import { ClinicalAppointment } from 'src/Routes/clinical-appointment/entities/clinical-appointment.entity';
-import { User } from 'src/Routes/user/entities/user.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
+import { EntityBase } from '../../../entities/entity-base.entity';
+import { User } from '../../user/entities/user.entity';
+import { ClinicalAppointment } from '../../clinical-appointment/entities/clinical-appointment.entity';
 
 @Entity('Pet')
 export class Pet extends EntityBase {

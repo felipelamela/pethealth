@@ -1,14 +1,13 @@
-import { AddressService } from '../address/address.service';
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
-import { DeleteResult, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { DeleteResult, Repository } from 'typeorm';
+import { CreateUserDto } from './dto/create-user.dto';
+import { AddressService } from '../address/address.service';
 import { UpdateAddressDto } from '../address/dto/update-address.dto';
-import { updateValues } from 'src/utils/utils';
 import { Address } from '../address/entities/address.entity';
-
+import { updateValues } from '../../utils/utils';
+import { UpdateUserDto } from './dto/update-user.dto';
 @Injectable()
 export class UserService {
   constructor(

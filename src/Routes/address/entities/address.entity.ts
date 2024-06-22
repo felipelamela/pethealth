@@ -1,7 +1,7 @@
-import { EntityBase } from 'src/entities/entity-base.entity';
-import { Clinic } from 'src/Routes/clinic/entities/clinic.entity';
-import { User } from 'src/Routes/user/entities/user.entity';
 import { Column, Entity, OneToOne } from 'typeorm';
+import { EntityBase } from '../../../entities/entity-base.entity';
+import { User } from '../../user/entities/user.entity';
+import { Clinic } from '../../clinic/entities/clinic.entity';
 
 @Entity('Address')
 export class Address extends EntityBase {

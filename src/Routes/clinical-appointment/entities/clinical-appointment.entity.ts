@@ -1,9 +1,9 @@
-import { EntityBase } from 'src/entities/entity-base.entity';
-import { Clinic } from 'src/Routes/clinic/entities/clinic.entity';
-import { Pet } from 'src/Routes/pet/entities/pet.entity';
-import { User } from 'src/Routes/user/entities/user.entity';
-import { Vet } from 'src/Routes/vet/entities/vet.entity';
 import { Column, Entity, JoinColumn, OneToMany } from 'typeorm';
+import { EntityBase } from '../../../entities/entity-base.entity';
+import { Clinic } from '../../clinic/entities/clinic.entity';
+import { Pet } from '../../pet/entities/pet.entity';
+import { Vet } from '../../vet/entities/vet.entity';
+import { User } from '../../user/entities/user.entity';
 
 @Entity({ name: 'Clinical_Appointment' })
 export class ClinicalAppointment extends EntityBase {
