@@ -3,9 +3,13 @@ import { Clinic } from 'src/Routes/clinic/entities/clinic.entity';
 import { Pet } from 'src/Routes/pet/entities/pet.entity';
 import { User } from 'src/Routes/user/entities/user.entity';
 import { Vet } from 'src/Routes/vet/entities/vet.entity';
-import { Column, JoinColumn, OneToMany } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany } from 'typeorm';
 
+@Entity({ name: 'Clinical_Appointment' })
 export class ClinicalAppointment extends EntityBase {
+  @Column({ name: 'Title', type: 'nvarchar' })
+  Title: string;
+
   @Column({ name: 'Description', type: 'text' })
   Description: string;
 
@@ -22,6 +26,6 @@ export class ClinicalAppointment extends EntityBase {
   Vet: Vet[];
 
   @OneToMany(() => User, (User) => User.ClinicalAppointment)
-  @JoinColumn({ name: 'User_Id0' })
+  @JoinColumn({ name: 'User_Id' })
   User: User[];
 }

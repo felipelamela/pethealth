@@ -22,4 +22,14 @@ export class Pet extends EntityBase {
     (ClinicalAppointment) => ClinicalAppointment.Pet,
   )
   ClinicalAppointment: ClinicalAppointment;
+
+  constructor(
+    Name?: string,
+    Birth?: Date,
+    Breed?: string,
+    User?: User,
+    ClinicalAppointment?: ClinicalAppointment,
+  ) {
+    super();
+  }
 }

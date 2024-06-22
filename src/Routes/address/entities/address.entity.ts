@@ -1,4 +1,5 @@
 import { EntityBase } from 'src/entities/entity-base.entity';
+import { Clinic } from 'src/Routes/clinic/entities/clinic.entity';
 import { User } from 'src/Routes/user/entities/user.entity';
 import { Column, Entity, OneToOne } from 'typeorm';
 
@@ -27,4 +28,21 @@ export class Address extends EntityBase {
 
   @OneToOne(() => User, (User) => User.Address)
   User: User;
+
+  @OneToOne(() => Clinic, (Clinic) => Clinic.Address)
+  Clinic: Clinic;
+
+  constructor(
+    Street?: string,
+    CodePost?: string,
+    Number?: string,
+    Complement?: string,
+    City?: string,
+    State?: string,
+    Country?: string,
+    User?: User,
+    Clinic?: Clinic,
+  ) {
+    super();
+  }
 }

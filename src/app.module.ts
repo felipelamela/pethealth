@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { ClinicModule } from './Routes/clinic/clinic.module';
 import { ClinicVetModule } from './Routes/clinic_vet/clinic_vet.module';
 import { ClinicalAppointmentModule } from './Routes/clinical-appointment/clinical-appointment.module';
+import { RolesModule } from './roles/roles.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -30,6 +31,7 @@ import { ClinicalAppointmentModule } from './Routes/clinical-appointment/clinica
     ClinicModule,
     ClinicVetModule,
     ClinicalAppointmentModule,
+    RolesModule,
   ],
   controllers: [],
   providers: [],
