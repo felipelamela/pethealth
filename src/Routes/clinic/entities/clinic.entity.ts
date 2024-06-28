@@ -7,10 +7,11 @@ import {
   OneToOne,
 } from 'typeorm';
 import { EntityBase } from '../../../entities/entity-base.entity';
-import { ClinicVet } from '../../clinic_vet/entities/clinic_vet.entity';
 import { User } from '../../user/entities/user.entity';
 import { Address } from '../../address/entities/address.entity';
-import { ClinicalAppointment } from '../../clinical-appointment/entities/clinical-appointment.entity';
+import { ClinicalAppointment } from './clinical-appointment.entity';
+import { ClinicVet } from './clinic_vet.entity';
+import { ClinicWorker } from './clinic_worker.entity';
 
 @Entity('Clinic')
 export class Clinic extends EntityBase {
@@ -31,8 +32,8 @@ export class Clinic extends EntityBase {
   @JoinColumn({ name: 'Address_Id' })
   Address: Address;
 
-  // @OneToMany(() => ClinicWorker, (ClinicWorker) => ClinicWorker.Clinic)
-  // ClinicWorker: ClinicWorker;
+  @OneToMany(() => ClinicWorker, (ClinicWorker) => ClinicWorker.Clinic)
+  ClinicWorker: ClinicWorker;
 
   @ManyToOne(
     () => ClinicalAppointment,

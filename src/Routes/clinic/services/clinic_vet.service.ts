@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { CreateClinicVetDto } from './dto/create-clinic-vet.dto';
-import { UpdateClinicVetDto } from './dto/update-clinic-vet.dto';
+import { CreateClinicVetDto } from '../dto/create-clinic-vet.dto';
+import { UpdateClinicVetDto } from '../dto/update-clinic-vet.dto';
 
 @Injectable()
 export class ClinicVetService {
   create(createClinicVetDto: CreateClinicVetDto) {
+    console.log(
+      '🚀 ~ ClinicVetService ~ create ~ createClinicVetDto:',
+      createClinicVetDto,
+    );
     return 'This action adds a new clinicVet';
   }
 
@@ -17,6 +21,10 @@ export class ClinicVetService {
   }
 
   update(id: number, updateClinicVetDto: UpdateClinicVetDto) {
+    console.log(
+      '🚀 ~ ClinicVetService ~ update ~ updateClinicVetDto:',
+      updateClinicVetDto,
+    );
     return `This action updates a #${id} clinicVet`;
   }
 

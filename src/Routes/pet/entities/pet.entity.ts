@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { EntityBase } from '../../../entities/entity-base.entity';
 import { User } from '../../user/entities/user.entity';
+import { ClinicalAppointment } from '../../clinic/entities/clinical-appointment.entity';
 
 @Entity('Pet')
 export class Pet extends EntityBase {
@@ -17,11 +18,11 @@ export class Pet extends EntityBase {
   @JoinColumn({ name: 'User_Id' })
   User: User;
 
-  // @ManyToOne(
-  //   () => ClinicalAppointment,
-  //   (ClinicalAppointment) => ClinicalAppointment.Pet,
-  // )
-  // ClinicalAppointment: ClinicalAppointment;
+  @OneToMany(
+    () => ClinicalAppointment,
+    (ClinicalAppointment) => ClinicalAppointment.Pet,
+  )
+  ClinicalAppointment: ClinicalAppointment;
 
   constructor(pet?: Pet) {
     super();

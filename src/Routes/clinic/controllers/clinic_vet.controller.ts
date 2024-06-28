@@ -1,7 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ClinicVetService } from './clinic_vet.service';
-import { CreateClinicVetDto } from './dto/create-clinic-vet.dto';
-import { UpdateClinicVetDto } from './dto/update-clinic-vet.dto';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { ClinicVetService } from '../services/clinic_vet.service';
+import { CreateClinicVetDto } from '../dto/create-clinic-vet.dto';
+import { UpdateClinicVetDto } from '../dto/update-clinic-vet.dto';
 
 @Controller('clinic-vet')
 export class ClinicVetController {
@@ -23,7 +31,10 @@ export class ClinicVetController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateClinicVetDto: UpdateClinicVetDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateClinicVetDto: UpdateClinicVetDto,
+  ) {
     return this.clinicVetService.update(+id, updateClinicVetDto);
   }
 

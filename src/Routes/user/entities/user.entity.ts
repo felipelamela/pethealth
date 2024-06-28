@@ -5,6 +5,8 @@ import { Role } from '../../../roles/entities/role.entity';
 import { Clinic } from '../../clinic/entities/clinic.entity';
 import { Vet } from '../../vet/entities/vet.entity';
 import { Pet } from '../../pet/entities/pet.entity';
+import { ClinicWorker } from '../../clinic/entities/clinic_worker.entity';
+import { ClinicalAppointment } from '../../clinic/entities/clinical-appointment.entity';
 
 @Entity('User')
 export class User extends EntityBase {
@@ -34,14 +36,17 @@ export class User extends EntityBase {
   @OneToOne(() => Vet, (Vet) => Vet.User)
   Vet: Vet;
 
+  @OneToOne(() => ClinicWorker, (ClinicWorker) => ClinicWorker.User)
+  ClinicWorker: ClinicWorker;
+
   @OneToMany(() => Pet, (Pet) => Pet.User)
   Pet: Pet[];
 
-  // @ManyToOne(
-  //   () => ClinicalAppointment,
-  //   (ClinicalAppointment) => ClinicalAppointment.User,
-  // )
-  // ClinicalAppointment: ClinicalAppointment;
+  @OneToMany(
+    () => ClinicalAppointment,
+    (ClinicalAppointment) => ClinicalAppointment.User,
+  )
+  ClinicalAppointment: ClinicalAppointment;
 
   constructor(user?: Partial<User>) {
     super();

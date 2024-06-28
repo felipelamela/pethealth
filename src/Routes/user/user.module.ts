@@ -6,6 +6,7 @@ import { User } from './entities/user.entity';
 import { AddressService } from '../address/address.service';
 import { Address } from '../address/entities/address.entity';
 import { Pet } from '../pet/entities/pet.entity';
+import { PetService } from '../pet/pet.service';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { Pet } from '../pet/entities/pet.entity';
     TypeOrmModule.forFeature([Address]),
   ],
   controllers: [UserController],
-  providers: [UserService, AddressService],
+  providers: [UserService, AddressService, PetService],
   exports: [UserService],
 })
 export class UserModule {}

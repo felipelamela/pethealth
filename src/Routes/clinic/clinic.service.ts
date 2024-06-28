@@ -11,7 +11,7 @@ import FindUserDto from './dto/find-user.dto';
 import StatusCode from '../../Services/StatusCode';
 import { IStatusCodeSuccess } from '../../Services/dtos/statusCode.dto';
 import { CreatePetDto } from '../pet/dto/create-pet.dto';
-import { ClinicVet } from '../clinic_vet/entities/clinic_vet.entity';
+import { ClinicVet } from './entities/clinic_vet.entity';
 
 @Injectable()
 export class ClinicService {

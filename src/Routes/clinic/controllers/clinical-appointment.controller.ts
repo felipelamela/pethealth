@@ -7,9 +7,9 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ClinicalAppointmentService } from './clinical-appointment.service';
-import { CreateClinicalAppointmentDto } from './dto/create-clinical-appointment.dto';
-import { UpdateClinicalAppointmentDto } from './dto/update-clinical-appointment.dto';
+import { ClinicalAppointmentService } from '../services/clinical-appointment.service';
+import { CreateClinicalAppointmentDto } from '../dto/create-clinical-appointment.dto';
+import { UpdateClinicalAppointmentDto } from '../dto/update-clinical-appointment.dto';
 
 @Controller('clinical-appointment')
 export class ClinicalAppointmentController {
