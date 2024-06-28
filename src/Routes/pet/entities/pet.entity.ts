@@ -1,7 +1,6 @@
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { EntityBase } from '../../../entities/entity-base.entity';
 import { User } from '../../user/entities/user.entity';
-import { ClinicalAppointment } from '../../clinical-appointment/entities/clinical-appointment.entity';
 
 @Entity('Pet')
 export class Pet extends EntityBase {
@@ -15,21 +14,20 @@ export class Pet extends EntityBase {
   Breed: string;
 
   @ManyToOne(() => User, (User) => User.Pet)
+  @JoinColumn({ name: 'User_Id' })
   User: User;
 
-  @ManyToOne(
-    () => ClinicalAppointment,
-    (ClinicalAppointment) => ClinicalAppointment.Pet,
-  )
-  ClinicalAppointment: ClinicalAppointment;
+  // @ManyToOne(
+  //   () => ClinicalAppointment,
+  //   (ClinicalAppointment) => ClinicalAppointment.Pet,
+  // )
+  // ClinicalAppointment: ClinicalAppointment;
 
-  constructor(
-    Name?: string,
-    Birth?: Date,
-    Breed?: string,
-    User?: User,
-    ClinicalAppointment?: ClinicalAppointment,
-  ) {
+  constructor(pet?: Pet) {
     super();
+    this.Name = pet?.Name;
+    this.Birth = pet?.Birth;
+    this.Breed = pet?.Breed;
+    this.User = pet?.User;
   }
 }

@@ -3,12 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './Routes/user/user.module';
 import { VetModule } from './Routes/vet/vet.module';
-import { PetModule } from './Routes/pet/pet.module';
 import { AuthModule } from './auth/auth.module';
 import { ClinicModule } from './Routes/clinic/clinic.module';
-import { ClinicVetModule } from './Routes/clinic_vet/clinic_vet.module';
-import { ClinicalAppointmentModule } from './Routes/clinical-appointment/clinical-appointment.module';
 import { RolesModule } from './roles/roles.module';
+import { SchedulingModule } from './Routes/scheduling/scheduling.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -26,12 +24,10 @@ import { RolesModule } from './roles/roles.module';
     }),
     UserModule,
     VetModule,
-    PetModule,
     AuthModule,
     ClinicModule,
-    ClinicVetModule,
-    ClinicalAppointmentModule,
     RolesModule,
+    SchedulingModule,
   ],
   controllers: [],
   providers: [],

@@ -5,5 +5,6 @@ import { ClinicalAppointmentController } from './clinical-appointment.controller
 @Module({
   controllers: [ClinicalAppointmentController],
   providers: [ClinicalAppointmentService],
+  exports: [ClinicalAppointmentService],
 })
 export class ClinicalAppointmentModule {}

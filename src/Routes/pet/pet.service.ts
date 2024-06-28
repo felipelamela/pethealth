@@ -1,26 +1,28 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePetDto } from './dto/create-pet.dto';
-import { UpdatePetDto } from './dto/update-pet.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Pet } from './entities/pet.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class PetService {
+  constructor(
+    @InjectRepository(Pet)
+    private readonly petRepository: Repository<Pet>,
+  ) {}
   create(createPetDto: CreatePetDto) {
-    return 'This action adds a new pet';
+    return this.petRepository.save(createPetDto);
   }
 
-  findAll() {
-    return `This action returns all pet`;
+  updateForUser(pet: Pet) {
+    return this.petRepository.save(pet);
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} pet`;
-  }
-
-  update(id: number, updatePetDto: UpdatePetDto) {
-    return `This action updates a #${id} pet`;
+    return this.petRepository.findOne({ where: { Id: id } });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} pet`;
+    return this.petRepository.delete(id);
   }
 }

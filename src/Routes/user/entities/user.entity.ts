@@ -1,18 +1,10 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { EntityBase } from '../../../entities/entity-base.entity';
 import { Address } from '../../address/entities/address.entity';
 import { Role } from '../../../roles/entities/role.entity';
 import { Clinic } from '../../clinic/entities/clinic.entity';
 import { Vet } from '../../vet/entities/vet.entity';
 import { Pet } from '../../pet/entities/pet.entity';
-import { ClinicalAppointment } from '../../clinical-appointment/entities/clinical-appointment.entity';
 
 @Entity('User')
 export class User extends EntityBase {
@@ -45,22 +37,21 @@ export class User extends EntityBase {
   @OneToMany(() => Pet, (Pet) => Pet.User)
   Pet: Pet[];
 
-  @ManyToOne(
-    () => ClinicalAppointment,
-    (ClinicalAppointment) => ClinicalAppointment.User,
-  )
-  ClinicalAppointment: ClinicalAppointment;
+  // @ManyToOne(
+  //   () => ClinicalAppointment,
+  //   (ClinicalAppointment) => ClinicalAppointment.User,
+  // )
+  // ClinicalAppointment: ClinicalAppointment;
 
-  constructor(
-    Name?: string,
-    Document?: string,
-    Email?: string,
-    Password?: string,
-    Address?: Address,
-    Role?: Role,
-    Clinic?: Clinic,
-    Vet?: Vet,
-  ) {
+  constructor(user?: Partial<User>) {
     super();
+    this.Name = user?.Name;
+    this.Document = user?.Document;
+    this.Email = user?.Email;
+    this.Password = user?.Password;
+    this.Address = user?.Address;
+    this.Role = user?.Role;
+    this.Clinic = user?.Clinic;
+    this.Vet = user?.Vet;
   }
 }
